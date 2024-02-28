@@ -34,7 +34,7 @@ function settingGradle(gradleConfig) {
             mod.modResults.contents += `
           include ':watermelondb-jsi'
           project(':watermelondb-jsi').projectDir =
-            new File(rootProject.projectDir, '../node_modules/@nozbe/watermelondb/native/android-jsi')
+            new File(rootProject.projectDir, '../../node_modules/@nozbe/watermelondb/native/android-jsi')
         `;
         }
         return mod;
@@ -58,7 +58,7 @@ const cocoaPods = (config) => {
             const newContents = contents.replace('post_install do |installer|', `
           
     # WatermelonDB dependency
-    pod 'simdjson', path: '../node_modules/@nozbe/simdjson', modular_headers: true          
+    pod 'simdjson', path: '../../node_modules/@nozbe/simdjson', modular_headers: true          
     
     post_install do |installer|`);
             await fs.writeFile(filePath, newContents);
